@@ -44,6 +44,7 @@ while not game_done:
     print(f"The winner is {winner} with amount of ${highest_bid}")
 
 
+#pass to other bidders
   elif bidders=="yes":
     clearConsole()
   else:
