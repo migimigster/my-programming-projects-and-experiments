@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poodfanda</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Poodfanda</h1>
+    <form action="hello.html">
+<div id="f_and_l_name">
+    <label for="Firstname" class="name">First Name</label>
+    <input type="text" placeholder="First Name" id="Firstname" name="Firstname" required>
+    <br>
+    <label for="Lastname" class="name">Last Name</label>
+    <input type="text" placeholder="Last Name" id="Lastname" name="Lastname" required>
+</div>
+
+    <p>Select Sports: </p>
+    <div>
+    <input type="radio" name="Basketball" id="basket" value="basketball">
+    <label for="basket">Basketball</label>
+    </div>
+    <div>
+    <input type="radio" name="Football" id="foot" value="football">
+    <label for="foot">Football</label>
+    </div>
+    <div>
+    <input type="radio" name="Volleyball" id="volley" value="volleyball">
+    <label for="volley">Volleyball</label>
+    </div>
+    <div>
+    <input type="radio" name="Baseball" id="base" value="baseball">
+    <label for="base">Baseball</label>
+    </div>
+<div>
+    <label for="email">Email</label>
+    <input type="email" placeholder="Email" id="email" required>
+    <label for pass>Password</label>
+    <input type="password" placeholder="password must be 8-16 characters" id="pass" required>
+</div>
+<div>
+    <label for="age">Select Age group</label>
+    <select name="age" id="age" required>
+        <option value="Select age group" selected>--Select age group--</option>
+        <option value="12-17">12-17</option>
+        <option value="18-23">18-23</option>
+        <option value="24-28">24-28</option>
+        <option value="29+">29+</option>
+    </select>
+</div>
+<button>Register</button>
+    </form>
+</body>
+</html>

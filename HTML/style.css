@@ -1,0 +1,41 @@
+h1 {
+    color: #FFFFFF;
+    font-weight: 100;
+    font-family: Century Gothic;
+    text-align: center;
+    background-color: fuchsia;
+
+}
+/* #f_and_l_name{
+    text-align: left;
+    letter-spacing: 1px;
+    background-color: gray;
+    width: 200px;
+    height: 100px;
+    color: white;
+} */
+#f_and_l_name{
+    text-align: center;
+    letter-spacing: 1px;
+    background-color: gray;
+    width: 350px;
+    height: 80px;
+    color: white;
+    font-size: 25px;
+    font-family: Century Gothic;
+    font-weight:800;
+}
+button{
+    background-color: blue;
+    color: black;
+}
+button:hover{
+    background-color: red;
+    color: white;
+}
+input{
+    background-color: rgb(224, 91, 180);
+}
+::placeholder{
+    color:#FFFFFF;
+}
