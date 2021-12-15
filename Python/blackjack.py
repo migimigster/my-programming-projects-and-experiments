@@ -27,7 +27,6 @@ def clearConsole():
         command = 'cls'
     os.system(command)
 
-
 from blackjackart import logo
 
 def game(cash):
@@ -93,6 +92,7 @@ def game(cash):
                     print("You lose")
                     cash-=bet_amount
                     print(f"Your remaining cash is ${cash}")
+        #when game is over, program asks user if u want to bet again using remaining cash
         if cash==0 or cash<0:
             game_overall = True
             print("You are out of money game over!")
@@ -104,6 +104,7 @@ def game(cash):
             else:
                 clearConsole()
 
+#if users want to quit or no cash remaining
 overall = False
 while not overall:
     remaining_cash = int(input("Input cash-in $"))
