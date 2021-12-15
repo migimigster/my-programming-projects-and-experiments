@@ -60,12 +60,12 @@ def game(cash):
                 print("You win!")
                 cash+=bet_amount
                 print(f"Your remaining cash is ${cash}")
-                program_done = True
+                break
             elif cpu_score==21 or player_score>21:
                 print("You lose!")
                 cash-=bet_amount
                 print(f"Your remaining cash is ${cash}")
-                program_done = True
+                break
             else:
 
                 #This is where players can chose to hit another card
