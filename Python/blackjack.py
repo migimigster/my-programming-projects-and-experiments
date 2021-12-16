@@ -84,7 +84,7 @@ def game(cash):
                 break
             else:
                 #This is where players can chose to hit another card
-                add_card=input("Take a hit? y or n? to choose double down, press d ")
+                add_card=input("Take a hit? y or n? ")
             if add_card =='y':
                 player_hand.append(deal_card())
             else:
