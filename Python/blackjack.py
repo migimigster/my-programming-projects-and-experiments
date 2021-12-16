@@ -27,6 +27,23 @@ def clearConsole():
         command = 'cls'
     os.system(command)
 
+def comparison(playerscore,cpuscore,cash,betamount):
+    '''Comparing the scores on final tally'''
+    if playerscore==21 or cpuscore>21 or (playerscore>cpuscore and playerscore<21):
+        print("You win!")
+        cash+=betamount
+        print(f"Your remaining cash is ${cash}")
+        return
+    elif playerscore==cpuscore:
+        print("It's a draw")
+        print(f"Your remaining cash is ${cash}")
+        return
+    elif playerscore>21 or cpuscore>21 or (playerscore<cpuscore and cpuscore<21):
+        print("You lose")
+        cash-=betamount
+        print(f"Your remaining cash is ${cash}")
+        return
+     
 from blackjackart import logo
 
 def game(cash):
@@ -66,9 +83,8 @@ def game(cash):
                 print(f"Your remaining cash is ${cash}")
                 break
             else:
-
                 #This is where players can chose to hit another card
-                add_card=input("Take a hit? y or n? ")
+                add_card=input("Take a hit? y or n? to choose double down, press d ")
             if add_card =='y':
                 player_hand.append(deal_card())
             else:
@@ -79,19 +95,8 @@ def game(cash):
                 print(f"Player's hand is {player_hand} equal to {player_score}")
                 print(f"CPU's hand is {cpu_hand} equal to {cpu_score}")
                 program_done=True
-
                 #This is where comparison occurs after hitting
-                if player_score==21 or cpu_score>21 or (player_score>cpu_score and player_score<21):
-                    print("You win!")
-                    cash+=bet_amount
-                    print(f"Your remaining cash is ${cash}")
-                elif player_score==cpu_score:
-                    print("It's a draw")
-                    print(f"Your remaining cash is ${cash}")
-                elif player_score>21 or cpu_score>21 or (player_score<cpu_score and cpu_score<21):
-                    print("You lose")
-                    cash-=bet_amount
-                    print(f"Your remaining cash is ${cash}")
+                comparison(player_score,cpu_score,cash,bet_amount)
         #when game is over, program asks user if u want to bet again using remaining cash
         if cash==0 or cash<0:
             game_overall = True
