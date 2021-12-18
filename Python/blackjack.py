@@ -63,16 +63,16 @@ def game(cash):
                 print_interface(cash,bet_amount,player_hand,player_score,cpu_hand,cpu_score)
                 #If initial hand is 21 then game is already over
                 if player_score==cpu_score and player_score==21:
-                    print("It's a draw")
+                    print("It's a draw already")
                     print(f"Your remaining cash is ${cash}")
                     break
-                elif player_score==21 or cpu_score>21:
-                    print("You win!")
+                elif (player_score==21) and len(player_hand)==2:
+                    print("You have won already!")
                     cash+=bet_amount
                     print(f"Your remaining cash is ${cash}")
                     break
-                elif cpu_score==21 or player_score>21:
-                    print("You lose!")
+                elif (cpu_score==21):
+                    print("You have lost already!")
                     cash-=bet_amount
                     print(f"Your remaining cash is ${cash}")
                     break
@@ -167,13 +167,14 @@ def game(cash):
                 if restart=='n':
                     game_overall = True
                     clearConsole()
-                    print(f"\nYou have ${cash}! Wow!")
+                    print(f"You have ${cash}! Wow!")
                 else:
                     clearConsole()
         else:
             clearConsole()
             print("Bet must not be a zero, a negative value, nor higher than your remaining cash!")
             input("Press any key to continue! ")
+            clearConsole()
             game_overall = False
 #if users want to quit or no cash remaining
 clearConsole()
@@ -185,10 +186,12 @@ while not overall:
             break
         except ValueError:
             clearConsole()
-            print("Input valid cash! ")
+            print("Input valid cash!")
+            input("Press any key to continue")
     if remaining_cash<=0 or remaining_cash>1000:
         clearConsole()
         print("Cash-in must be $1 to $1000!")
+        clearConsole()
     else:
         game(remaining_cash)
     play_again = input("Do you want to play again? y or n? ").lower()
