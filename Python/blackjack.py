@@ -63,7 +63,7 @@ def game(cash):
                 print_interface(cash,bet_amount,player_hand,player_score,cpu_hand,cpu_score)
                 #If initial hand is 21 then game is already over
                 if player_score==cpu_score and player_score==21:
-                    print("It's a draw already")
+                    print("It's a draw")
                     print(f"Your remaining cash is ${cash}")
                     break
                 elif (player_score==21) and len(player_hand)==2:
