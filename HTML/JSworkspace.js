@@ -28,28 +28,43 @@
 
 
 // WRITE YOUR LOOP BELOW THIS LINE:
-const numbers = [1,2,3,4,5,6,7,8,9]; //DON'T CHANGE THIS LINE PLEASE!
+// const numbers = [1,2,3,4,5,6,7,8,9]; //DON'T CHANGE THIS LINE PLEASE!
 
-// WRITE YOUR LOOP BELOW THIS LINE:
+// // WRITE YOUR LOOP BELOW THIS LINE:
 
-let list = [];
+// let list = [];
 
-while (true) {
-    x=prompt("What would you like to do?");
-    if (x === 'new'){
-        add = prompt("What would you like to add? ");
-        list.push(add);
-        console.log(`${add} added to the list\n`)
-    }else if(x==='delete'){
-        remove=parseInt(prompt("What index would you like to remove? "))
-        list.splice(remove-1,1);
-        console.log(`Number ${remove} has been removed to the list\n`) 
-    }else if(x==='quit'){
-        break;
-    }else if(x==='list'){
-        console.log("**********");
-        for (let i=0; i<list.length; i++){
-            console.log(`${i+1}: ${list[i]}`);
-        }console.log("**********");
-    }
-}
+// while (true) {
+//     x=prompt("What would you like to do?");
+//     if (x === 'new'){
+//         add = prompt("What would you like to add? ");
+//         list.push(add);
+//         console.log(`${add} added to the list\n`)
+//     }else if(x==='delete'){
+//         remove=parseInt(prompt("What index would you like to remove? "))
+//         list.splice(remove-1,1);
+//         console.log(`Number ${remove} has been removed to the list\n`) 
+//     }else if(x==='quit'){
+//         break;
+//     }else if(x==='list'){
+//         console.log("**********");
+//         for (let i=0; i<list.length; i++){
+//             console.log(`${i+1}: ${list[i]}`);
+//         }console.log("**********");
+//     }
+// }
+
+const btn = document.querySelector('#v2');
+const h1 = document.querySelector('h1');
+
+// const randomColor = () => {
+//     const r = Math.floor(Math.random() *255);
+//     const g = Math.floor(Math.random() *255);
+//     const b = Math.floor(Math.random() *255);
+//     return `rgb(${r}, ${g}, ${b})`
+//     };
+// btn.addEventListener('click',() => {
+//     newColor=randomColor();
+//     document.body.style.backgroundColor = newColor;
+//     h1.innerText = newColor;
+// });
