@@ -34,6 +34,7 @@ menu = {
     }
 }
 
+#resources contains the inventory
 resources = {
     "water": 30000,
     "milk": 20000,
@@ -41,6 +42,7 @@ resources = {
     "cash": 0
 }
 def coffee(customer_order):
+    '''Customer's input is converted to their respective order'''
     if customer_order==1:
         return 'espresso'
     elif customer_order==2:
@@ -56,12 +58,14 @@ def clearConsole():
         command = 'cls'
     os.system(command)
 def print_interface(resources):
+    '''Printing necessary information'''
     clearConsole()
     print(f'Water: {resources["water"]} ml')
     print(f'Coffee: {resources["coffee"]} g')
     print(f'Milk: {resources["milk"]} ml')
     print(f'Sales: ${resources["cash"]}')
 def money_count(orders,quantity):
+    '''Computation of the order's bill'''
     print("Please insert coins to pay!\n")
     while True:
         try:
@@ -95,6 +99,7 @@ def money_count(orders,quantity):
         print(f'Your change is: ${total_money}')
         return total_money
 def minus_inventory(orders,inventory,quantity,coffee_order):
+    '''This is where inventory is updated and the ouput is printed'''
     rem_water=int(inventory['water']-(orders['ingredients']['water'])*quantity)
     rem_coffee=int(inventory['coffee']-(orders['ingredients']['coffee'])*quantity)
     rem_milk=int(inventory['milk']-(orders['ingredients']['milk']*quantity))
@@ -130,6 +135,7 @@ def minus_inventory(orders,inventory,quantity,coffee_order):
                 print(f'Here is your {coffee_order} ☕! Enjoy!')
                 return new_inventory
 def refill_inventory(inventory):
+    '''this is where users can refill the inventory'''
     clearConsole()
     refill_ing=input("Which ingredient would you like to refill? Water? Coffee? Milk?\n").lower()
     if refill_ing=='water':
@@ -152,5 +158,6 @@ def refill_inventory(inventory):
     return inventory
 
 def menu_interface():
+    '''Input of customer's order'''
     x=input("What would you like to order? (Input their respective number.\n1. Espresso: $1.50\n2. Latte: $2.50\n3. Cappuccino: $3.00\n4. Americano: $3.50\nTo turn off the machine, please type 'off'\n\n").lower()
     return x
