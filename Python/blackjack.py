@@ -26,6 +26,23 @@ def clearConsole():
         command = 'cls'
     os.system(command)
 
+def comparison(player_score,cpu_score,cash,bet_amount):
+    '''Comparison after hitting the cards'''
+    if player_score>21 or (player_score<cpu_score and cpu_score<=21):
+        print("You lose")
+        cash-=bet_amount
+        print(f"Your remaining cash is ${cash}")
+        return cash
+    elif  cpu_score>21 or (player_score>cpu_score and player_score<=21):
+        print("You win!")
+        cash+=bet_amount
+        print(f"Your remaining cash is ${cash}")
+        return cash                   
+    elif player_score==cpu_score:
+        print("It's a draw")
+        print(f"Your remaining cash is ${cash}")
+        return cash  
+
 from blackjackart import logo
 
 def game(cash):
@@ -57,6 +74,13 @@ def game(cash):
                     print(f"Your bet is now ${betamount}")
                     print(f"\nPlayer's hand is {playerhand} equal to {playerscore}")
                     print(f"CPU's hand is {cpuhand} equal to {cpuscore}\n")
+                def cpu_smart(cash,bet_amount):
+                    clearConsole()
+                    print_interface(cash,bet_amount,player_hand,player_score,cpu_hand,cpu_score)
+                    print("You lose")
+                    cash-=bet_amount
+                    print(f"Your remaining cash is ${cash}")     
+                    return cash 
                 #This is where player and cpu hands' are shown
                 player_score=calculate_score(player_hand)
                 cpu_score=calculate_score(cpu_hand)
@@ -71,7 +95,7 @@ def game(cash):
                     cash+=bet_amount
                     print(f"Your remaining cash is ${cash}")
                     break
-                elif (cpu_score==21):
+                elif (cpu_score==21) or player_score>21:
                     print("You have lost already!")
                     cash-=bet_amount
                     print(f"Your remaining cash is ${cash}")
@@ -89,11 +113,7 @@ def game(cash):
                 elif add_card == 'n':
                     #CPU doesn't need to hit if player is done and CPU's score>Player's score
                     if player_score<cpu_score:
-                        clearConsole()
-                        print_interface(cash,bet_amount,player_hand,player_score,cpu_hand,cpu_score)
-                        print("You lose")
-                        cash-=bet_amount
-                        print(f"Your remaining cash is ${cash}")
+                        cash=cpu_smart(cash,bet_amount)
                         break
                     else:                        
                     #This is where cpu will hit if hand is less than 17 and possible to beat player once player is done
@@ -103,22 +123,8 @@ def game(cash):
                             cpu_score=calculate_score(cpu_hand)
                         print_interface(cash,bet_amount,player_hand,player_score,cpu_hand,cpu_score)
                         program_done=True
-
                     #This is where comparison occurs after hitting
-                    if player_score>21 or (player_score<cpu_score and cpu_score<=21):
-                        print("You lose")
-                        cash-=bet_amount
-                        print(f"Your remaining cash is ${cash}")
-                        break
-                    elif  cpu_score>21 or (player_score>cpu_score and player_score<=21):
-                        print("You win!")
-                        cash+=bet_amount
-                        print(f"Your remaining cash is ${cash}") 
-                        break                  
-                    elif player_score==cpu_score:
-                        print("It's a draw")
-                        print(f"Your remaining cash is ${cash}")
-                        break      
+                    cash=comparison(player_score,cpu_score,cash,bet_amount)    
             #-----DOUBLE DOWN! - This is where players will hit another card then their bet amount is increased 2x----------------------------------#
                 elif add_card == 'd' and ddown==0:
                     clearConsole()
@@ -127,12 +133,8 @@ def game(cash):
                     player_score=calculate_score(player_hand)
                     #CPU doesn't need to hit if player is done and CPU's score>Player's score
                     if player_score<cpu_score or player_score>21:
-                        clearConsole()
                         print(f"Your initial bet was ${int(bet_amount/2)}")
-                        print_interface(cash,bet_amount,player_hand,player_score,cpu_hand,cpu_score)
-                        print("You lose")
-                        cash-=bet_amount
-                        print(f"Your remaining cash is ${cash}")
+                        cash=cpu_smart(cash,bet_amount)
                         break
                     else:
                     #This is where cpu will hit if hand is less than 17 and possible to beat player once player is done
@@ -145,17 +147,7 @@ def game(cash):
                         program_done=True
 
                     #This is where comparison occurs after hitting
-                    if player_score>21 or (player_score<cpu_score and cpu_score<=21):
-                        print("You lose")
-                        cash-=bet_amount
-                        print(f"Your remaining cash is ${cash}")
-                    elif  cpu_score>21 or (player_score>cpu_score and player_score<=21):
-                        print("You win!")
-                        cash+=bet_amount
-                        print(f"Your remaining cash is ${cash}")                   
-                    elif player_score==cpu_score:
-                        print("It's a draw")
-                        print(f"Your remaining cash is ${cash}")                    
+                    cash=comparison(player_score,cpu_score,cash,bet_amount)                    
                 else:
                     clearConsole()
             #when game is over, program asks user if u want to bet again using remaining cash
