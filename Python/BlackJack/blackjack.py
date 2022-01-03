@@ -31,7 +31,10 @@ def comparison(player_score,cpu_score,cash,bet_amount):
     if player_score>21 or (player_score<cpu_score and cpu_score<=21):
         print("You lose")
         cash-=bet_amount
-        print(f"Your remaining cash is ${cash}")
+        if cash<0:
+            print(f"Your remaining cash is $0")
+        else:
+            print(f"Your remaining cash is ${cash}")
         return cash
     elif  cpu_score>21 or (player_score>cpu_score and player_score<=21):
         print("You win!")
@@ -109,7 +112,10 @@ def game(cash):
                 elif (cpu_score==21) or player_score>21:
                     print("You have lost already!")
                     cash-=bet_amount
-                    print(f"Your remaining cash is ${cash}")
+                    if cash<0:
+                        print(f"Your remaining cash is $0")
+                    else:
+                        print(f"Your remaining cash is ${cash}")
                     break
                 else:
                     #This is where players choose to hit, doubledown, split(coming soon) or stand

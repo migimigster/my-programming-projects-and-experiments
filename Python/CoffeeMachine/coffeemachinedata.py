@@ -1,4 +1,5 @@
 import os
+import prettytable
 menu = {
     "espresso": {
         "ingredients": {
@@ -57,7 +58,7 @@ def clearConsole():
     if os.name in ('nt', 'dos'):
         command = 'cls'
     os.system(command)
-def print_interface(resources):
+def print_report(resources):
     '''Printing necessary information'''
     clearConsole()
     print(f'Water: {resources["water"]} ml')
@@ -159,5 +160,5 @@ def refill_inventory(inventory):
 
 def menu_interface():
     '''Input of customer's order'''
-    x=input("What would you like to order? (Input their respective number.\n1. Espresso: $1.50\n2. Latte: $2.50\n3. Cappuccino: $3.00\n4. Americano: $3.50\nTo turn off the machine, please type 'off'\n\n").lower()
+    x=input("What would you like to order?\n").lower()
     return x
