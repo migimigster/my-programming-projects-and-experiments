@@ -54,8 +54,8 @@
 //     }
 // }
 
-const btn = document.querySelector('#v2');
-const h1 = document.querySelector('h1');
+// const btn = document.querySelector('#v2');
+// const h1 = document.querySelector('h1');
 
 // const randomColor = () => {
 //     const r = Math.floor(Math.random() *255);
@@ -68,3 +68,15 @@ const h1 = document.querySelector('h1');
 //     document.body.style.backgroundColor = newColor;
 //     h1.innerText = newColor;
 // });
+
+
+sing = async () =>{
+    return 'Sup boi';
+}
+
+sing();
+
+// async function uhOh(){
+//     throw new Error ('Oh no!');
+// }
+// uhOh();
