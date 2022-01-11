@@ -1,17 +1,25 @@
-# from turtle import Turtle, Screen
-# timmy=Turtle()
-# timmy.shape("turtle")
-# timmy.color("red")
-# timmy.forward(100)
-# timmy.circle(100)
-# print(timmy)
-# x=Screen()
-# print(x.canvheight)
-# x.exitonclick()
+import turtle as t
+import random
+# colors = ["red","yellow","orange","green","blue","violet"]
+t.colormode(255)
+too=t.Turtle()
+too.shape("classic")
+def random_colors():
+    a=random.randint(0,255)
+    b=random.randint(0,255)
+    c=random.randint(0,255)
+    colors=(a,b,c)
+    return colors
+def spirograph(size_gap):
+    for i in range(int(360/size_gap)):
+        too.speed("fastest")
+        too.color(random_colors())
+        too.circle(100)
+        current = too.heading()
+        too.setheading(current+size_gap)
+spirograph(10)
 
-
-from prettytable import PrettyTable
-table=PrettyTable()
-table.add_column("Pokemon Name",["Pikachu","Charmander","Squirtle"])
-table.add_column("Type",["Electric","Fire","Water"])
-print(table)
+x = t.Screen()
+x.exitonclick()
+ 
+ 
